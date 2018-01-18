@@ -1,0 +1,7 @@
+coverage/
+doc/
+pkg/
+tmp/
+vendor/
+.rbx
+.rvmrc

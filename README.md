@@ -6,13 +6,25 @@ by Lukas Zapletal [![](https://secure.travis-ci.org/lzap/logging-journald.svg)](
 
 ### Description
 
-**Logging Journald** is a plugin for logging gem - the flexible logging library for use in Ruby programs. It supports logging to system journal via journald-logger and journald-native gems.
+**Logging Journald** is a plugin for [logging gem](https://github.com/TwP/logging) - the flexible logging library for use in Ruby programs. It supports logging to system journal via journald-logger and journald-native gems.
 
 ### Installation
 
 ```
 gem install logging-journald
 ```
+
+The gem provides journald appender and noop layout that does no formatting since core library does not provide such a layout. Apppender options are:
+
+* name - name of the appender (required)
+* ident - optional log ident (appender name by default)
+* layout - optional layout (no formatting by default)
+* mdc - log mdc into custom journal fields (true by default)
+* ndc - log ndc hash values into custom journal fields (true by default)
+* facility - optional syslog facility rendered as SYSLOG_FACILITY (USER by default)
+* extra - extra custom journal fields as hash
+
+All custom fields are converted to uppercase by joudnald automatically, for more details [visit official documentation](https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html).
 
 ### Examples
 

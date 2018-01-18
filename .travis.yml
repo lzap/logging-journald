@@ -1,6 +1,6 @@
 language: ruby
 before_install:
-  - sudo apt-get install -y systemd-dev
+  - sudo apt-get install -y libsystemd-journal-dev
 install: "bundle install"
 script: "bundle exec rake"
 rvm:

@@ -21,7 +21,7 @@ The gem provides journald appender and noop layout that does no formatting since
 * layout - optional layout (no formatting by default)
 * mdc - log mdc into custom journal fields (true by default)
 * ndc - log ndc hash values into custom journal fields (true by default)
-* facility - optional syslog facility rendered as SYSLOG_FACILITY (USER by default)
+* facility - optional syslog facility rendered as SYSLOG_FACILITY (LOG_USER (8) by default)
 * extra - extra custom journal fields as hash
 
 All custom fields are converted to uppercase by joudnald automatically, for more details [visit official documentation](https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html).

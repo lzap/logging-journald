@@ -1,6 +1,6 @@
 language: ruby
-install: "rake gem:install_dependencies"
-script: "rake"
+install: "bundle install"
+script: "bundle exec rake"
 rvm:
   - 2.0.0
   - 2.3.0

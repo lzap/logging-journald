@@ -18,8 +18,9 @@ module Logging
         @ident = opts.fetch(:ident, name)
         @mdc = opts.fetch(:mdc, true)
         @ndc = opts.fetch(:ndc, true)
-        @facility = Integer(opts.fetch(:facility, ::Syslog::Constants::LOG_USER))
+        @facility = Integer(opts.fetch(:facility, -1))
         @extra = opts.fetch(:extra, {})
+        @logger_name = opts.fetch(:logger_name, false)
         @map = [
           ::Journald::LOG_DEBUG,
           ::Journald::LOG_INFO,
@@ -61,10 +62,9 @@ module Logging
       end
 
       def write(event)
-        priority = ::Journald::LOG_DEBUG
         record = {}
         record.merge!(extra) unless extra.empty?
-        record.merge!(SYSLOG_FACILITY: @facility) unless @facility.nil?
+        record[:SYSLOG_FACILITY] = @facility if @facility >= 0
         record.merge!(Logging.mdc.context) if mdc
         if ndc
           Logging.ndc.context.each do |item|
@@ -72,7 +72,8 @@ module Logging
           end
         end
         if event.instance_of?(::Logging::LogEvent)
-          priority = @map[event.level]
+          record[:priority] = (@map[event.level] || ::Journald::LOG_DEBUG)
+          record[@logger_name] = event.logger if @logger_name
           if event.data.instance_of?(Hash)
             record.merge!(event.data)
           else
@@ -81,7 +82,6 @@ module Logging
         else
           record[:message] = event
         end
-        record.merge!({ priority: priority })
         @journal.send(record)
         self
       rescue StandardError => err

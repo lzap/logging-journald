@@ -4,8 +4,8 @@ before_install:
 install: "bundle install"
 script: "bundle exec rake"
 rvm:
+  - 2.0.0
   - 2.1.0
   - 2.2.0
   - 2.3.0
   - 2.4.0
-

@@ -3,7 +3,7 @@ module Logging
     module Journald
       extend self
 
-      VERSION ||= '1.0.0'.freeze
+      VERSION ||= '1.0.1'.freeze
 
       def initialize_journald
         require File.expand_path('../../layouts/noop', __FILE__)

@@ -1,6 +1,5 @@
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'logging/plugins/journald'
+# coding: utf-8
+require File.join(File.expand_path(File.dirname(__FILE__)), 'lib', 'logging', 'plugins', 'journald')
 
 Gem::Specification.new do |spec|
   spec.name          = 'logging-journald'

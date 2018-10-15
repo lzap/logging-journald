@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'journald-logger', '~> 2.0'
-  spec.add_runtime_dependency 'logging', '~> 2.2'
+  spec.add_runtime_dependency 'logging'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'mocha'

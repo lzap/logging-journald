@@ -1,9 +1,6 @@
-# coding: utf-8
-require File.join(File.expand_path(File.dirname(__FILE__)), 'lib', 'logging', 'plugins', 'journald')
-
 Gem::Specification.new do |spec|
   spec.name          = 'logging-journald'
-  spec.version       = Logging::Plugins::Journald::VERSION
+  spec.version       = '2.0.3'
   spec.authors       = ['Lukas Zapletal']
   spec.email         = ['lukas-x@zapletalovi.com']
   spec.summary       = "Journald appender for logging gem"

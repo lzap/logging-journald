@@ -82,7 +82,7 @@ module Logging
         else
           record[:message] = event
         end
-        @journal.send(record)
+        @journal.send_message(record)
         self
       rescue StandardError => err
         self.level = :off

@@ -38,7 +38,7 @@ log.add_appenders(Logging.appenders.journald('myservice'))
 
 # use mapped diagnostic context to send custom fields
 Logging.mdc['signed_user'] = 'Ondra'
-logger.debug "blah blah"
+log.debug "blah blah"
 ```
 
 The example above will be rendered as:

@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'journald-logger', '~> 3.0'
   spec.add_runtime_dependency 'logging'
 
-  spec.add_development_dependency 'rake', '~> 11.0' # ruby 2.0
+  spec.add_development_dependency 'rake', '~> 12.3' # ruby 2.0
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'mocha'
   spec.add_development_dependency 'test-unit'
